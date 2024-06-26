@@ -8,8 +8,7 @@ public class SimpleTest extends BaseTest {
     @Test
     public void firstTest(){
 
-        initTest("Sample test");
-        driver.get("http://apptest.go.ro:9999/login");
+        initTest("Simple test");
 
         String expectedText = "Login";
 
@@ -19,7 +18,7 @@ public class SimpleTest extends BaseTest {
         //Assert.assertEquals(loginText.toLowerCase(), expectedText.toLowerCase());
         Assert.assertTrue(loginText.equalsIgnoreCase(expectedText));
 
-        System.out.println(loginText);
-        System.out.println(expectedText);
+        System.out.println("Actual text: " + loginText);
+        System.out.println("Expected text: " + expectedText);
     }
 }

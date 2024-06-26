@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ScreenshotUtils {
+
     private WebDriver driver;
 
     public ScreenshotUtils(WebDriver driverFromBaseTestClass){

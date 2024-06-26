@@ -16,7 +16,6 @@ public class RegisterUser extends BaseTest {
 
             initTest("Register User");
 
-            driver.get("http://apptest.go.ro:9999/login");
             login = new Login(driver);
             register = new Register(driver);
 
@@ -24,15 +23,6 @@ public class RegisterUser extends BaseTest {
 
             Assert.assertTrue(register.getSignUpText().equalsIgnoreCase( "Sign Up"));
 
-            register.setFirstName("Andrei");
-            register.setLastName("Nenu");
-            register.setPhoneNumber("072324");
-            register.setEmail("andrei@andrei.com");
-            register.setPassword("1111");
-            register.setCity("Brasov");
-            //register.customer();
-            register.trainer();
-            register.submit();
-
+            register.registerUser(true);
     }
 }

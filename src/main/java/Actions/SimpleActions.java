@@ -5,14 +5,14 @@ import org.openqa.selenium.WebDriver;
 
 public class SimpleActions {
 
-    private SimpleElements elements;
+    private SimpleElements element;
 
     public SimpleActions(WebDriver driver){
-        this.elements = new SimpleElements(driver);
+        this.element = new SimpleElements(driver);
     }
 
     public String getLoginText(){
-        return elements.loginText().getText();
+        return element.loginText().getText();
     }
 
 

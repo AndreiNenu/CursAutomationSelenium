@@ -3,6 +3,7 @@ package Actions;
 import WebElements.DashboardElements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class Dashboard {
 
@@ -14,6 +15,10 @@ public class Dashboard {
 
     public String getUserEmailFromDashboard(){
         return elements.userNameDisplay().getText();
+    }
+
+    public WebElement getWebElement(){
+        return elements.userNameDisplay();
     }
 
 }

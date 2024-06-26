@@ -19,19 +19,17 @@ public class LoginTrainer extends BaseTest {
     @Test
     public void loginTrainer(){
 
-        initTest("Login User");
-
+        initTest("Login trainer");
         login = new Login(driver);
         dashboard = new Dashboard(driver);
 
-        login.setLoginUserEmail("andrei@andrei3.com");
-        login.setLoginUserPassword("1234");
-        login.loginSubmitButton();
+        login.enterUsername("andrei@andrei.com");
+        login.enterPassword("1111");
+        login.clickSubmitButton();
 
         WebDriverWait waitTime = new WebDriverWait(driver, Duration.ofSeconds(10));
         waitTime.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='navigation__link userName']")));
 
-        Assert.assertTrue(dashboard.getUserEmailFromDashboard().equalsIgnoreCase("andrei@andrei3.com"));
-
+        Assert.assertTrue(dashboard.getUserEmailFromDashboard().equalsIgnoreCase("andrei@andrei.com"));
     }
 }

@@ -47,7 +47,22 @@ public class Register {
         elements.trainer().click();;
     }
 
-    public void submit(){
+    public void clickSubmitButton(){
         elements.submit().click();
+    }
+
+    public void registerUser(boolean isTrainer){
+        setFirstName("Andrei");
+        setLastName("Nenu");
+        setPhoneNumber("07212345");
+        setEmail("andrei2@andrei.com"); //andrei@andrei.com //andre1@andrei.com - works
+        setPassword("1111"); //1111 - works
+        setCity("Brasov");
+        if(isTrainer){
+            trainer();
+        }else{
+            customer();
+        }
+        clickSubmitButton();
     }
 }
