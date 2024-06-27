@@ -22,11 +22,15 @@ public class LoginElements {
     }
 
     public WebElement userPassword(){
-        return driver.findElement(By.cssSelector("userPassword"));
+        return driver.findElement(By.cssSelector("#userPassword"));
     }
 
     public WebElement submitButton(){
         return driver.findElement(By.cssSelector("#submitButton"));
+    }
+
+    public WebElement errorForbiddenAccess(){
+        return driver.findElement(By.cssSelector("#errorForbiddenAccess"));
     }
 
 

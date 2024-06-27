@@ -5,26 +5,30 @@ import org.openqa.selenium.WebDriver;
 
 public class Login {
 
-    private LoginElements elements;
+    private LoginElements element;
 
     public Login(WebDriver driver){
-        this.elements = new LoginElements(driver);
+        this.element = new LoginElements(driver);
     }
 
     public void clickRegisterButton(){
-        elements.registerButton().click();
+        element.registerButton().click();
     }
 
-    public void setLoginUserEmail (String userEmail){
-        elements.userEmail().sendKeys(userEmail);
+    public void enterUsername(String userEmail){
+        element.userEmail().sendKeys(userEmail);
     }
 
-    public void setLoginUserPassword(String userPassword){
-        elements.userPassword().sendKeys(userPassword);
+    public void enterPassword(String userPassword){
+        element.userPassword().sendKeys(userPassword);
     }
 
-    public void loginSubmitButton(){
-        elements.submitButton().click();
+    public void clickSubmitButton(){
+        element.submitButton().click();
+    }
+
+    public String errorForbiddenAccessText(){
+        return element.errorForbiddenAccess().getText();
     }
 
 }

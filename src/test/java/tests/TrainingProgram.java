@@ -17,7 +17,7 @@ public class TrainingProgram extends BaseTest {
     private Login login = null;
     private Dashboard dashboard = null;
     private Register register = null;
-    private RegisterUser
+    private RegisterUser registerUser = null;
 
     @Test
     public void openTrainingTab(){
@@ -26,17 +26,19 @@ public class TrainingProgram extends BaseTest {
         login = new Login(driver);
         dashboard = new Dashboard(driver);
         register = new Register(driver);
-
+        registerUser = new RegisterUser();
         login();
 
 
     }
 
     private void login() {
-        login.setLoginUserEmail("andrei@andrei3.com");
-        login.setLoginUserPassword("1234");
-        login.loginSubmitButton();
+        login.enterUsername("andrei@andrei29.com");
+        login.enterPassword("1111");
+        login.clickSubmitButton();
 
-
+        if(login.errorForbiddenAccessText().equalsIgnoreCase("Access forbidden!")){
+            register.registerUser(false);
+        }
     }
 }
