@@ -37,8 +37,9 @@ public class TrainingProgram extends BaseTest {
         login.enterPassword("1111");
         login.clickSubmitButton();
 
-        if(login.errorForbiddenAccessText().equalsIgnoreCase("Access forbidden!")){
-            register.registerUser(false);
+        if(login.errorForbiddenAccessText()){
+                login.clickRegisterButton();
+                register.registerUser(false);
         }
     }
 }
