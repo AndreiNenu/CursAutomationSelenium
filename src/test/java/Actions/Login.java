@@ -4,6 +4,7 @@ import WebElements.LoginElements;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utile.ConfigLoader;
 
 import java.time.Duration;
 
@@ -15,7 +16,7 @@ public class Login {
     public Login(WebDriver driver){
 
         this.element = new LoginElements(driver);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void clickRegisterButton(){

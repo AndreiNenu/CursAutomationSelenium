@@ -3,21 +3,19 @@ package tests;
 import Actions.Dashboard;
 import Actions.Login;
 import Actions.Register;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import Actions.Training;
+import WebElements.TrainingElements;
 import org.testng.annotations.Test;
 import utile.BaseTest;
-
-import java.time.Duration;
+import utile.ConfigLoader;
 
 public class TrainingProgram extends BaseTest {
 
     private Login login = null;
     private Dashboard dashboard = null;
-    private Register register = null;
     private RegisterUser registerUser = null;
+    private Training training;
+    private ConfigLoader configLoader = new ConfigLoader("src/test/resources/proprietati/dateUser.properties");
 
     @Test
     public void openTrainingTab(){
@@ -25,21 +23,24 @@ public class TrainingProgram extends BaseTest {
         initTest("Training program");
         login = new Login(driver);
         dashboard = new Dashboard(driver);
-        register = new Register(driver);
+        training = new Training(driver);
         registerUser = new RegisterUser();
+
         login();
-
-
     }
 
     private void login() {
-        login.enterUsername("andrei@andrei29.com");
-        login.enterPassword("1111");
+
+        String email = configLoader.getProperty("email");
+        String password = configLoader.getProperty("password");
+
+        login.enterUsername(email);
+        login.enterPassword(password);
         login.clickSubmitButton();
 
-        if(login.errorForbiddenAccessText()){
-                login.clickRegisterButton();
-                register.registerUser(false);
-        }
+        dashboard.clickTrainingButton();
+
+        training.clickGenerateProgramButton();
+
     }
 }

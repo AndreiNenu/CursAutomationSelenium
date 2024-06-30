@@ -13,16 +13,16 @@
         </classes>
     </test>-->
 
-    <!--<test name="Login Trainer">
+    <test name="Login Trainer">
         <classes>
             <class name="tests.LoginTrainer"/>
         </classes>
-    </test>-->
+    </test>
 
-    <test name="Training Program">
+    <!--<test name="Training Program">
         <classes>
             <class name="tests.TrainingProgram"/>
         </classes>
-    </test>
+    </test>-->
 
 </suite>
