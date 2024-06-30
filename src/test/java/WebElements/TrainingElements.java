@@ -7,17 +7,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class DashboardElements {
+public class TrainingElements {
 
     private WebDriver driver;
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-    public DashboardElements(WebDriver driver){
+    public TrainingElements(WebDriver driver){
         this.driver = driver;
     }
 
-    public WebElement userNameDisplay(){
-        return driver.findElement(By.cssSelector("#userNameDisplay"));
+    public WebElement generateProgram(){
+        return driver.findElement(By.cssSelector(".generate-program"));
     }
 
 }
