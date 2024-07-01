@@ -13,6 +13,7 @@ import java.util.Date;
 public class ScreenshotUtils {
 
     private WebDriver driver;
+    private ConfigLoader configLoader = new ConfigLoader("src/test/resources/proprietati/applicationsURLs.properties");
 
     public ScreenshotUtils(WebDriver driverFromBaseTestClass){
         this.driver = driverFromBaseTestClass;
@@ -21,10 +22,12 @@ public class ScreenshotUtils {
     public void captureAndSaveScreenshots(String testName){
 
         try {
+            String dateFormat = configLoader.getProperty("dateFormat");
+            String screenshotDirectory = configLoader.getProperty("screenshotDirectory");
             File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+            String timeStamp = new SimpleDateFormat(dateFormat).format(new Date());
             String screenshotName = testName + "_" + timeStamp + ".png";
-            String screenshotDirectory = "Screenshots";
+            //String screenshotDirectory = "Screenshots";
 
             File targetFile = new File(screenshotDirectory, screenshotName);
             FileUtils.copyFile(screenshotFile, targetFile);

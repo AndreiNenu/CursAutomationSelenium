@@ -20,13 +20,15 @@ public class BaseTest {
     public WebDriver driver;
     private ExtentTest extentTest;
     private ScreenshotUtils screenshotUtils;
+    private ConfigLoader configLoader = new ConfigLoader("src/test/resources/proprietati/applicationsURLs.properties");
 
     @BeforeClass
     public void setupClass(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         screenshotUtils = new ScreenshotUtils(driver);
-        driver.get("http://apptest.go.ro:9999/login");
+        String trainingApp = configLoader.getProperty("trainingApp");
+        driver.get(trainingApp);
     }
 
     @AfterClass
@@ -72,7 +74,6 @@ public class BaseTest {
 
         //capture and save screenshot
         screenshotUtils.captureAndSaveScreenshots(testName);
-
     }
 
 }
