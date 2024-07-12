@@ -28,4 +28,8 @@ public class TrainingElements {
     public List<WebElement> trainingPrograms(){
         return driver.findElements(By.cssSelector(".cdk-drag"));
     }
+
+    public List<WebElement> trainingProgramsOnWeekDay(String dayNumber){
+        return driver.findElements(By.cssSelector("#cdk-drop-list-" + dayNumber + " .cdk-drag"));
+    }
 }

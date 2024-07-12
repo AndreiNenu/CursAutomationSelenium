@@ -42,9 +42,11 @@ public class TrainingProgram extends BaseTest {
 
         training.clickGenerateProgramButton();
 
-        training.dragAndDropTrainingProgram(configLoader.getProperty("weekDay"), configLoader.getProperty("trainingProgram"));
+        training.dragAndDropTrainingProgram(configLoader.getProperty("weekDay"),
+                configLoader.getProperty("trainingProgram"));
 
-        //De adaugat assert!
+        Assert.assertTrue(training.trainingProgramOnWeekday(configLoader.getProperty("weekDay"), "legs").
+                equalsIgnoreCase("legs"));
     }
 
     private void login() {
