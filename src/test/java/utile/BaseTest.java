@@ -29,6 +29,7 @@ public class BaseTest {
         screenshotUtils = new ScreenshotUtils(driver);
         String trainingApp = configLoader.getProperty("trainingApp");
         driver.get(trainingApp);
+        driver.manage().window().maximize();
     }
 
     @AfterClass

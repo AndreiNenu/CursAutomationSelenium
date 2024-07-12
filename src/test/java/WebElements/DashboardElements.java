@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class DashboardElements {
 
@@ -22,6 +23,22 @@ public class DashboardElements {
 
     public WebElement trainingButton(){
         return driver.findElement(By.cssSelector(".trainings"));
+    }
+
+    public List<WebElement> calendarDays(){
+        return driver.findElements(By.cssSelector(".fc-daygrid-day"));
+    }
+
+    public WebElement eventTitle(){
+        return driver.findElement(By.cssSelector("#eventTitle"));
+    }
+
+    public WebElement createEventButton(){
+        return driver.findElement(By.cssSelector("#createEventButton"));
+    }
+
+    public List<WebElement> events(){
+        return driver.findElements(By.cssSelector(".fc-event"));
     }
 
 }
