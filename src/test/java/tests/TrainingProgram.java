@@ -15,16 +15,10 @@ public class TrainingProgram extends BaseTest {
 
     private Login login = null;
     private Dashboard dashboard = null;
-    private RegisterUser registerUser = null;
-    private Training training;
     private Register register = null;
     private ConfigLoader configLoader = new ConfigLoader("src/test/resources/proprietati/dateUser.properties");
+    private ConfigLoader configLoaderCalendar = new ConfigLoader("src/test/resources/proprietati/CalendarData.properties");
 
-    @BeforeTest
-    public void setup(){
-
-
-    }
 
     @Test
     public void openTrainingTab(){
@@ -32,8 +26,7 @@ public class TrainingProgram extends BaseTest {
         initTest("Training program");
         login = new Login(driver);
         dashboard = new Dashboard(driver);
-        training = new Training(driver);
-        registerUser = new RegisterUser();
+        Training training = new Training(driver);
         register = new Register(driver);
 
         login();
@@ -42,14 +35,14 @@ public class TrainingProgram extends BaseTest {
 
         training.clickGenerateProgramButton();
 
-        training.dragAndDropTrainingProgram(configLoader.getProperty("weekDay"),
-                configLoader.getProperty("trainingProgram"));
+        training.dragAndDropTrainingProgram(configLoaderCalendar.getProperty("weekDay"),
+                configLoaderCalendar.getProperty("trainingProgram"));
 
-        Assert.assertTrue(training.trainingProgramOnWeekday(configLoader.getProperty("weekDay"), "legs").
+        Assert.assertTrue(training.trainingProgramOnWeekday(configLoaderCalendar.getProperty("weekDay"), "legs").
                 equalsIgnoreCase("legs"));
     }
 
-    private void login() {
+    public void login() {
 
         String email = configLoader.getProperty("email");
         String password = configLoader.getProperty("password");
