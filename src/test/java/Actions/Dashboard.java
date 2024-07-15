@@ -55,6 +55,7 @@ public class Dashboard {
     }
 
     public boolean isEventPresent(String event){
+        wait.until(d -> !elements.events().isEmpty());
         for(WebElement element:elements.events()){
             if(element.getText().equalsIgnoreCase(event)){
                 return true;
